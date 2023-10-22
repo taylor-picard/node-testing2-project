@@ -4,8 +4,11 @@
   "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand",
+    "start": "node index.js",
     "server": "nodemon index.js",
-    "migrate": ""
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run"
   },
   "repository": {
     "type": "git",

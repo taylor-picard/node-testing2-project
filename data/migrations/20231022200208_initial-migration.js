@@ -1,15 +1,15 @@
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
+
 exports.up = function(knex) {
-  
+  return knex.schema
+    .createTable("names", table => {
+        table.increments("name_id")
+        table.text("firstName").notNullable()
+        table.text("lastName").notNullable()
+    })
 };
 
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
+
 exports.down = function(knex) {
-  
+  return knex.schema
+    .dropTableIfExists("names")
 };
